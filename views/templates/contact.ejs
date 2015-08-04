@@ -10,5 +10,11 @@
     <header>
       <h1> welcome <%= pageTitle %> </h1>
     </header>
+    <form action="contact/email" method="POST">
+      name : <input name="name" type="text" placeholder="John Doe">
+      email : <input name="email" type="email" placeholder="john@doe.com">
+      message : <input name="message" type="text" placeholder="I love you">
+      <input type="submit" value="send">
+    </form>
   </body>
 </html>
