@@ -1,7 +1,7 @@
 var express = require('express');
 var contact = express.Router();
 
-contact.get('/contact', function(req,res){
+contact.get('/', function(req,res){
   var attr = {
     pageTitle : 'contact'
   };

@@ -1,7 +1,7 @@
 var express = require('express');
 var about = express.Router();
 
-about.get('/about', function(req,res){
+about.get('/', function(req,res){
   var attr = {
     pageTitle : 'about'
   };
