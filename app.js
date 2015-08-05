@@ -17,6 +17,7 @@ var contact = require(path.join(process.cwd(),'/routes/contact'));
 // variables //
 
 var app = express();
+require(path.join(process.cwd(),'/lib/secrets'));
 
 
 // settings //
