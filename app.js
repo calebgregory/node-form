@@ -11,7 +11,7 @@ var path = require('path');
 
 var index = require(path.join(process.cwd(),'/routes/index'));
 var about = require(path.join(process.cwd(),'/routes/about'));
-var contact = require(path.join(process.cwd(),'/routes/contact'));
+var spammer = require(path.join(process.cwd(),'/routes/spammer'));
 
 
 // variables //
@@ -52,7 +52,7 @@ app.use(bodyParser.urlencoded({ extended : false }));
 // routes //
 app.use('/', index);
 app.use('/about', about);
-app.use('/contact', contact);
+app.use('/spammer', spammer);
 
 
 // errors //
