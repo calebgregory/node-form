@@ -1,7 +1,9 @@
+var cp = require('child_process');
+var path = require('path');
+
 var express = require('express');
 var spammer = express.Router();
 var request = require('request');
-var path = require('path');
 var nodemailer = require('nodemailer');
 var directTransport = require('nodemailer-direct-transport');
 
@@ -49,9 +51,23 @@ spammer.post('/email', function(req,res){
     } else {
       console.log(response);
       var url = require(path.join(process.cwd(),'/lib/auth.url'));
-      request(url, function(err,xhr,body) {
-        res.send(body);
-      });
+      console.log('cwd:',process.cwd());
+      console.log('url:',url);
+      cp.exec('./phantomjs spookyscripts/hackthemainframe.js '+ url,
+              function(err,stdout,stderr) {
+                console.log('stdout:', stdout);
+                console.log('stderr:', stderr);
+                if (err!==null) console.log('exec error:',err);
+              });
+      res.redirect('/spammer');
+
+     // request(url, function(err,xhr,body) {
+     //   if(err) {
+     //     console.log(err);
+     //   } else {
+     //     res.send(body);
+     //   }
+     // });
     }
   });
 });
